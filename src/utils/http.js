@@ -1,6 +1,8 @@
 import axios from 'axios';
-import ElementUI from 'element-ui';
 import qs from 'qs'
+
+import ViewUI from 'view-design';
+
 //通用变量
 let childEventId = '756d3a31-2b26-495c-baaf-0e538a6f1b11';
 let belong = 'SUMSUNG20';
@@ -105,7 +107,7 @@ async function post(url, params = {}, ifHideTit) {
         };
         if (!url) {
             resData.errorMsg = '请输入接口!';
-            ElementUI.Message.warning(resData.errorMsg);
+            ViewUI.Message.warning(resData.errorMsg);
             resolve(resData);
             return;
         }
@@ -117,7 +119,7 @@ async function post(url, params = {}, ifHideTit) {
                 } else {
                     resData.errorMsg = res.data.msg || '服务器出小差了！';
                     if (!ifHideTit) {
-                        ElementUI.Message.warning(resData.errorMsg);
+                        ViewUI.Message.warning(resData.errorMsg);
                     }
                 }
                 //提供返回的code，给予更多的判断可能
@@ -128,7 +130,7 @@ async function post(url, params = {}, ifHideTit) {
                 console.log(err)
                 resData.errorMsg = '服务器出小差了！';
                 if (!ifHideTit) {
-                    ElementUI.Message.error(resData.errorMsg);
+                    ViewUI.Message.error(resData.errorMsg);
                 }
                 resolve(resData);
             }
