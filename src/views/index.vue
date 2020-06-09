@@ -7,9 +7,7 @@
         </div>
     </div>
 </template>
-
 <script scoped>
-import HTTP from '@/api';
 export default {
     name: 'index',
     data() {
@@ -27,7 +25,7 @@ export default {
         },
 
         async getBasicInfo() {
-            const { success, code } = await HTTP.check({ code:'0000000000' });
+            const { success, code } = await this.$HTTP.check({ code:'0000000000' });
             console.log(success, code);
 
             console.log(this.$Message)

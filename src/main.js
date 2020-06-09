@@ -9,6 +9,8 @@ import 'view-design/dist/styles/iview.css';
 import App from './App.vue'
 import router from './router'
 
+import HTTP from '@/api';
+
 import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 import './styles/index.scss'  // global css
 
@@ -16,6 +18,8 @@ import './styles/index.scss'  // global css
 // Vue.use(ViewUI);
 // Vue.component('Message', Message);
 Vue.prototype.$Message = Message;//赋值使用
+Vue.prototype.$HTTP = HTTP;//赋值使用
+
 
 Vue.config.productionTip = false
 
