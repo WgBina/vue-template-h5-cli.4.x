@@ -4,6 +4,8 @@
             <div class="content">
                 //
             </div>
+
+            <div class="triangle"></div>
         </div>
     </div>
 </template>
@@ -56,6 +58,12 @@ export default {
         overflow: auto;
         .content {
             height: 100px;
+        }
+
+        .triangle{
+            width: 100px;
+            height: 100px;
+            background: red;
         }
     }
 }
