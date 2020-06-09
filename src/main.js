@@ -10,6 +10,7 @@ import App from './App.vue'
 import router from './router'
 
 import HTTP from '@/api';
+import mai from './utils/dictionary.js';
 
 import 'normalize.css/normalize.css' // a modern alternative to CSS resets
 import './styles/index.scss'  // global css
@@ -19,7 +20,9 @@ import './styles/index.scss'  // global css
 // Vue.component('Message', Message);
 Vue.prototype.$Message = Message;//赋值使用
 Vue.prototype.$HTTP = HTTP;//赋值使用
-
+//全局埋点方法
+Vue.prototype.$mai = mai.mai
+Vue.prototype.$maiVisit = mai.maiVisit
 
 Vue.config.productionTip = false
 
