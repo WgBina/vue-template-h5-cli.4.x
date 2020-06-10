@@ -32,14 +32,14 @@ async function post(url, params = {}, ifHideTit) {
             res => {
                 if (res.data.code == status) {
                     resData.success = true;
-                    resData.data = res.data.data || [];
                 } else {
                     resData.errorMsg = res.data.msg || '服务器出小差了！';
                     if (!ifHideTit) {
                         ViewUI.Message.warning(resData.errorMsg);
                     }
                 }
-                //提供返回的code，给予更多的判断可能
+                //提供返回的参数，给予更多的判断可能
+                resData.data = res.data.data || [];
                 resData.code = res.data.code;
                 resolve(resData);
             },
