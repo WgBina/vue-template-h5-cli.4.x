@@ -5,7 +5,7 @@
         <div class="section">
             <div class="content">
                 //
-                <input type="text" />
+                <input type="text" ref="input1" />
             </div>
         </div>
     </div>
@@ -26,6 +26,9 @@ export default {
     },
     mounted() {
         this.getBasicInfo();
+
+        this.$utils.listenKeybord({ $input: this.$refs.input1 });
+
     }
 };
 </script>
