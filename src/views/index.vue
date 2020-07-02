@@ -10,6 +10,7 @@
 
                 <input type="text" ref="input2" />
 
+                <div class="bottom">bottom</div>
             </div>
         </div>
     </div>
@@ -60,15 +61,21 @@ export default {
     .test-h {
         background: red;
         height: 20%;
-
     }
-
-    .link-jump{
+    .bottom {
+        position: fixed;
+        bottom: 0;
+    }
+    .link-jump {
         margin-top: 1200px;
     }
 }
 
-.key-up .test-h{
-    background: black!important;
+.key-up .test-h {
+    background: black !important;
+}
+.key-up .bottom {
+    position: relative!important;
+
 }
 </style>
