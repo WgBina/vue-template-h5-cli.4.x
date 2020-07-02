@@ -17,9 +17,6 @@ export default {
     methods: {
         async getBasicInfo() {
             const { success, code } = await this.$HTTP.check({ code: '0000000000' });
-            console.log(success, code);
-
-            console.log(this.$Message);
 
             this.$Message.success('This is a success tip');
         }
