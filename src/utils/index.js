@@ -12,7 +12,8 @@ function judgeDeviceType() {
 }
 
 // 监听输入框的软键盘弹起和收起事件
-function listenKeybord($input) {
+function listenKeybord({ $el, $input }) {
+    console.log($el);
     if (judgeDeviceType().isIOS) {
         // IOS 键盘弹起：IOS 和 Android 输入框获取焦点键盘弹起
         if (!$input) return;
@@ -41,15 +42,20 @@ function listenKeybord($input) {
             'resize',
             function() {
                 var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
-                if (originHeight < resizeHeight) {
-                    console.log('Android 键盘收起啦！');
-                    // Android 键盘收起后操作
-                } else {
+
+                console.log(originHeight, resizeHeight);
+
+                if (originHeight > resizeHeight) {
                     console.log('Android 键盘弹起啦！');
                     // Android 键盘弹起后操作
+                    $el.style.height = originHeight + 'px';
+                    $el.classList.add('key-up');
+                } else {
+                    console.log('Android 键盘收起啦！');
+                    // Android 键盘收起后操作
+                    $el.classList.remove('key-up');
                 }
 
-                originHeight = resizeHeight;
             },
             false
         );

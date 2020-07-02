@@ -1,31 +1,29 @@
 <template>
-  <div id="app">
-      <transition>
-        <router-view/>
-      </transition>
-
-  </div>
+    <div id="app" ref="app">
+        <transition>
+            <router-view />
+        </transition>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
+    name: 'App',
 
-  mounted(){
-      this.$utils.listenKeybord()
-  }
-}
+    mounted() {
+        this.$utils.listenKeybord({ $el: this.$refs.app });
+    }
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  height: 100%;
-
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    height: 100%;
 }
 
 .v-enter,

@@ -1,8 +1,11 @@
 <template>
     <div class="index">
+        <div class="test-h"></div>
+
         <div class="section">
             <div class="content">
                 //
+                <input type="text" />
             </div>
         </div>
     </div>
@@ -46,5 +49,15 @@ export default {
             height: 100px;
         }
     }
+
+    .test-h {
+        background: red;
+        height: 20%;
+
+    }
+}
+
+.key-up .test-h{
+    background: black!important;
 }
 </style>
