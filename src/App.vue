@@ -11,6 +11,7 @@ export default {
     name: 'App',
 
     mounted() {
+        //hack:安卓键盘改变view高度
         this.$utils.listenKeybord({ $el: this.$refs.app });
     }
 };

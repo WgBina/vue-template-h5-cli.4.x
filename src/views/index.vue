@@ -5,6 +5,7 @@
         <div class="section">
             <div class="content">
                 //
+
                 <input type="text" ref="input1" />
 
                 <input type="text" ref="input2" />
@@ -60,6 +61,10 @@ export default {
         background: red;
         height: 20%;
 
+    }
+
+    .link-jump{
+        margin-top: 1200px;
     }
 }
 
