@@ -9,8 +9,8 @@ let belong = 'SUMSUNG20';
 const status = 0;
 // url 接口
 // params  参数  get key=value  post 对象形式
-// ifHideTit 是否隐藏提示有值表示隐藏
-async function post(url, params = {}, ifHideTit) {
+// ifShowTit 是否隐藏提示有值表示隐藏
+async function post(url, params = {}, ifShowTit) {
     //通用变量
     params.childEventId = childEventId;
     params.belong = belong;
@@ -34,7 +34,7 @@ async function post(url, params = {}, ifHideTit) {
                     resData.success = true;
                 } else {
                     resData.errorMsg = res.data.msg || '服务器出小差了！';
-                    if (!ifHideTit) {
+                    if (ifShowTit) {
                         ViewUI.Message.warning(resData.errorMsg);
                     }
                 }
@@ -46,7 +46,7 @@ async function post(url, params = {}, ifHideTit) {
             err => {
                 console.log(err);
                 resData.errorMsg = '服务器出小差了！';
-                if (!ifHideTit) {
+                if (ifShowTit) {
                     ViewUI.Message.error(resData.errorMsg);
                 }
                 resolve(resData);
