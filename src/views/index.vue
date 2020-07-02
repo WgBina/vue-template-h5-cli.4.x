@@ -6,6 +6,9 @@
             <div class="content">
                 //
                 <input type="text" ref="input1" />
+
+                <input type="text" ref="input2" />
+
             </div>
         </div>
     </div>
@@ -28,7 +31,7 @@ export default {
         this.getBasicInfo();
 
         this.$utils.listenKeybord({ $input: this.$refs.input1 });
-
+        this.$utils.listenKeybord({ $input: this.$refs.input2 });
     }
 };
 </script>

@@ -1,3 +1,5 @@
+let isFocus = false;
+
 // 判断设备类型
 function judgeDeviceType() {
     var ua = window.navigator.userAgent.toLocaleLowerCase();
@@ -23,6 +25,9 @@ function listenKeybord({ $el, $input }) {
             () => {
                 console.log('IOS 键盘弹起啦！');
                 // IOS 键盘弹起后操作
+                isFocus = true;
+                console.log('执行2');
+
             },
             false
         );
@@ -33,6 +38,16 @@ function listenKeybord({ $el, $input }) {
             () => {
                 console.log('IOS 键盘收起啦！');
                 // IOS 键盘收起后操作
+                isFocus = false;
+                console.log('执行1');
+
+
+                setTimeout(() => {
+                    console.log('执行3');
+                    if (!isFocus) {
+                        window.scrollTo(0, 0);
+                    }
+                }, 100);
             },
             false
         );
@@ -48,9 +63,6 @@ function listenKeybord({ $el, $input }) {
             'resize',
             () => {
                 var resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-                console.log(originHeight, resizeHeight);
-
                 if (originHeight > resizeHeight) {
                     console.log('Android 键盘弹起啦！');
                     // Android 键盘弹起后操作
