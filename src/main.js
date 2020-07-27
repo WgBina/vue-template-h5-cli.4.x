@@ -1,17 +1,21 @@
 import Vue from 'vue';
 
-import Vconsole from 'vconsole';
-var vConsole = new Vconsole();
-Vue.use(vConsole);
-
+if (process.env.NODE_ENV === 'development') {
+    const VConsole = require('vconsole');
+    new VConsole();
+}
+import Loading from './components/Loading'
 // import ElementUI from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // import ViewUI from 'view-design';
+
 import { Message } from 'view-design';
 import 'view-design/dist/styles/iview.css';
 
 import App from './App.vue';
 import router from './router';
+
+import { store, mutations } from './store'; //自定义store
 
 import HTTP from '@/api';
 import mai from './utils/dictionary.js';
@@ -29,8 +33,13 @@ Vue.prototype.$mai = mai.mai;
 Vue.prototype.$maiVisit = mai.maiVisit;
 //全局utils方法
 Vue.prototype.$utils = utils;
-
-Vue.config.productionTip = false;
+//自定义store
+Vue.prototype.$store = {
+    store,
+    mutations
+};
+//全局Loading
+Vue.prototype.$loading = Loading
 
 new Vue({
     router,
